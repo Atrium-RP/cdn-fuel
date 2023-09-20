@@ -731,42 +731,42 @@ RegisterNetEvent('cdn-fuel:client:FinalMenu', function(purchasetype)
 				local wholetankcost = (FuelPrice * ReserveLevels)
 				local wholetankcostwithtax = math.ceil(FuelPrice * ReserveLevels + GlobalTax(wholetankcost))
 				fuel = exports['qb-input']:ShowInput({
-					header = "Select the Amount of Fuel<br>Current Price: $" ..
-					FuelPrice .. " / Liter <br> Current Fuel: " .. finalfuel .. " Liters <br> Full Tank Cost: $" ..
+					header = "Indiquer la quantité de carburant<br>Prix actuel: $" ..
+					FuelPrice .. " / Litre <br> Carburant actuel: " .. finalfuel .. " Litres <br> Coût d'un plein: $" ..
 					wholetankcostwithtax .. "",
 					submitText = Lang:t("input_insert_nozzle"),
 					inputs = { {
 						type = 'number',
 						isRequired = true,
 						name = 'amount',
-						text = 'Only '..ReserveLevels..' Liters are available.'
+						text = 'Seulement '..ReserveLevels..' litres restant.'
 					}}
 				})
 			else
 				fuel = exports['qb-input']:ShowInput({
-					header = "Select the Amount of Fuel<br>Current Price: $" ..
-					FuelPrice .. " / Liter <br> Current Fuel: " .. finalfuel .. " Liters <br> Full Tank Cost: $" ..
+					header = "Indiquer la quantité de carburant<br>Prix actuel: $" ..
+					FuelPrice .. " / Litre <br> Carburant actuel: " .. finalfuel .. " Litres <br> Coût d'un plein: $" ..
 					wholetankcostwithtax .. "",
 					submitText = Lang:t("input_insert_nozzle"),
 					inputs = { {
 						type = 'number',
 						isRequired = true,
 						name = 'amount',
-						text = 'The Tank Can Hold ' .. maxfuel .. ' More Liters.'
+						text = 'Le réservoir peut contenir ' .. maxfuel .. ' litres supplémentaires.'
 					}}
 				})
 			end
 		else
 			fuel = exports['qb-input']:ShowInput({
-				header = "Select the Amount of Fuel<br>Current Price: $" ..
-				FuelPrice .. " / Liter <br> Current Fuel: " .. finalfuel .. " Liters <br> Full Tank Cost: $" ..
+				header = "Indiquer la quantité de carburant<br>Prix actuel: $" ..
+				FuelPrice .. " / Litre <br> Carburant actuel: " .. finalfuel .. " Litres <br> Coût d'un plein: $" ..
 				wholetankcostwithtax .. "",
 				submitText = Lang:t("input_insert_nozzle"),
 				inputs = { {
 					type = 'number',
 					isRequired = true,
 					name = 'amount',
-					text = 'The Tank Can Hold ' .. maxfuel .. ' More Liters.'
+					text = 'Le réservoir peut contenir ' .. maxfuel .. ' litres supplémentaires.'
 				}}
 			})
 		end
@@ -2747,18 +2747,18 @@ CreateThread(function()
 						end
 					end,
 				},
-				{
-					num = 2,
-					type = "client",
-					event = "cdn-fuel:client:purchasejerrycan",
-					icon = "fas fa-fire-flame-simple",
-					label = Lang:t("buy_jerrycan"),
-					canInteract = function()
-						if not IsPedInAnyVehicle(PlayerPedId()) and not holdingnozzle and not HoldingSpecialNozzle and inGasStation == true then
-							return true
-						end
-					end,
-				},
+				-- {
+				-- 	num = 2,
+				-- 	type = "client",
+				-- 	event = "cdn-fuel:client:purchasejerrycan",
+				-- 	icon = "fas fa-fire-flame-simple",
+				-- 	label = Lang:t("buy_jerrycan"),
+				-- 	canInteract = function()
+				-- 		if not IsPedInAnyVehicle(PlayerPedId()) and not holdingnozzle and not HoldingSpecialNozzle and inGasStation == true then
+				-- 			return true
+				-- 		end
+				-- 	end,
+				-- },
 				{
 					num = 3,
 					type = "client",
