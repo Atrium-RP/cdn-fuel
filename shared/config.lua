@@ -1442,11 +1442,11 @@ Config.GasStations = { -- Configuration options for various gas station related 
         pedmodel = "a_m_m_indian_01",
         cost = 100000,
         shutoff = false,
-        pedcoords = {
-            x = 238.45,
-            y = -892.06,
-            z = 28.65,
-            h = 79.12,
+        pedcoords = { --vector4(200.31, -880.76, 29.66, 338.25)
+            x = 200.31,
+            y = -880.76,
+            z = 28.66,
+            h = 338.25,
         },
         electriccharger = nil,
         electricchargercoords = vector4(223.56, -866.0, 28.67, 160.55),
