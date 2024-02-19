@@ -13,6 +13,7 @@ local Translations = {
     nozzle_cannot_reach = "La buse ne peut pas aller aussi loin!",
     station_no_fuel = "Cette station est en panne de carburant!",
     station_not_enough_fuel = "La station n'a pas autant de carburant!",
+    show_input_key_special = "[G] à proximité du véhicule pour faire le plein!",
     tank_cannot_fit = "Votre réservoir ne peut pas s'adapter à cela!",
     tank_already_full = "Votre véhicule est déjà plein !",
     need_electric_charger = "Vous avez besoin d'aller à un chargeur électrique!",

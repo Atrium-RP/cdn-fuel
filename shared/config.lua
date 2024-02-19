@@ -5,8 +5,8 @@ Config.ShowNearestGasStationOnly = true -- When enabled, only the nearest gas st
 Config.LeaveEngineRunning = false -- When true, the vehicle's engine will be left running upon exit if the player *HOLDS* F.
 Config.VehicleBlowUp = true -- When true, there will be a configurable chance of the vehicle blowing up, if you fuel while the engine is on.
 Config.BlowUpChance = 5 -- Percentage for Chance of Engine Explosion (Default: 5% or 5)
-Config.CostMultiplier = 3 -- Amount to multiply 1 by. This indicates fuel price. (Default: $3.0/l or 3.0)
-Config.GlobalTax = 15.0 -- The tax, in %, that people will be charged at the pump. (Default: 15% or 15.0)
+Config.CostMultiplier = 1 -- Amount to multiply 1 by. This indicates fuel price. (Default: $3.0/l or 3.0)
+Config.GlobalTax = 1.0 -- The tax, in %, that people will be charged at the pump. (Default: 15% or 15.0)
 Config.FuelNozzleExplosion = false -- When true, it enables the fuel pump exploding when players run away with the nozzle. Highly recommeded to be false.
 Config.FuelDecor = "_FUEL_LEVEL" -- Do not touch! (Default: "_FUEL_LEVEL")
 Config.RefuelTime = 600 -- Highly recommended to leave at 600. This value will be multiplied times the amount the player is fueling for the progress bar and cancellation logic! DON'T GO BELOW 250, performance WILL drop!
@@ -44,8 +44,6 @@ Config.EmergencyServicesDiscount = {
     ['ondutyonly'] = true, -- Discount only applies while on duty.
     ['job'] = {
         "police",
-        "sasp",
-        "trooper",
         "ambulance",
     }
 }
@@ -119,7 +117,7 @@ Config.OneStationPerPerson = true -- This prevents players that already own one 
 
 --- Electric Vehicles
 Config.ElectricVehicleCharging = true -- When true, electric vehicles will actually consume resources and decrease 'Fuel / Battery' while driving. This means players will have to recharge their vehicle!
-Config.ElectricChargingPrice = 4 -- Per "KW". This value is multiplied times the amount of electricity someone put into their vehicle, to constitute the final cost of the charge. Players whom own the gas station will not recieve the money from electric charging.
+Config.ElectricChargingPrice = 1 -- Per "KW". This value is multiplied times the amount of electricity someone put into their vehicle, to constitute the final cost of the charge. Players whom own the gas station will not recieve the money from electric charging.
 Config.ElectricVehicles = { -- List of Electric Vehicles in the Base Game.
     ["surge"] = {
         isElectric = true,
@@ -151,7 +149,7 @@ Config.ElectricVehicles = { -- List of Electric Vehicles in the Base Game.
     ["caddy"] = {
         isElectric = true,
     },
-    ["caddy2"] = {
+    ["caddy2"] = { -- ?? caddy
         isElectric = true,
     },
     ["caddy3"] = {
@@ -166,10 +164,16 @@ Config.ElectricVehicles = { -- List of Electric Vehicles in the Base Game.
     ["imorgon"] = {
         isElectric = true,
     },
-    ["dilettante"] = {
+    ["dilettante"] = { -- dilettan
         isElectric = true,
     },
-    ["khamelion"] = {
+    ["dilettan"] = {
+        isElectric = true,
+    },
+    ["khamelion"] = { -- khamel
+        isElectric = true,
+    },
+    ["khamel"] = {
         isElectric = true,
     },
 }
@@ -185,27 +189,27 @@ Config.NoFuelUsage = { -- This is for you to put vehicles that you don't want to
 }
 
 Config.Classes = { -- Class multipliers. If you want SUVs to use less fuel, you can change it to anything under 1.0, and vise versa.
-	[0] = 1.0, -- Compacts
-	[1] = 1.0, -- Sedans
-	[2] = 1.0, -- SUVs
-	[3] = 1.0, -- Coupes
-	[4] = 1.0, -- Muscle
-	[5] = 1.0, -- Sports Classics
-	[6] = 1.0, -- Sports
-	[7] = 1.0, -- Super
-	[8] = 1.0, -- Motorcycles
-	[9] = 1.0, -- Off-road
-	[10] = 1.0, -- Industrial
-	[11] = 1.0, -- Utility
-	[12] = 1.0, -- Vans
+	[0] = 0.2, -- Compacts
+	[1] = 0.3, -- Sedans
+	[2] = 0.8, -- SUVs
+	[3] = 0.5, -- Coupes
+	[4] = 0.6, -- Muscle
+	[5] = 0.6, -- Sports Classics
+	[6] = 0.6, -- Sports
+	[7] = 0.7, -- Super
+	[8] = 0.5, -- Motorcycles
+	[9] = 0.6, -- Off-road
+	[10] = 0.5, -- Industrial
+	[11] = 0.6, -- Utility
+	[12] = 0.6, -- Vans
 	[13] = 0.0, -- Cycles
-	[14] = 1.0, -- Boats
-	[15] = 1.0, -- Helicopters
-	[16] = 1.0, -- Planes
-	[17] = 1.0, -- Service
-	[18] = 1.0, -- Emergency
+	[14] = 0.8, -- Boats
+	[15] = 0.6, -- Helicopters
+	[16] = 0.8, -- Planes
+	[17] = 0.6, -- Service
+	[18] = 0.6, -- Emergency
 	[19] = 1.0, -- Military
-	[20] = 1.0, -- Commercial
+	[20] = 0.8, -- Commercial
 	[21] = 1.0, -- Trains
 }
 
@@ -227,93 +231,93 @@ Config.AirAndWaterVehicleFueling = {
     ['enabled'] = true,
     ['locations'] = {
         -- MRPD Helipad
-        [1] = {
-            ['PolyZone'] = {
-                ['coords'] = {
-                    vector2(439.96, -973.0),
-                    vector2(458.09, -973.04),
-                    vector2(458.26, -989.47),
-                    vector2(439.58, -989.94),
-                },
-                ['minmax'] = {
-                    ['min'] = 40,
-                    ['max'] = 50.0
-                },
-            },
-            ['draw_text'] = "[G] Refuel Helicopter",
-            ['type'] = 'air',
-            ['whitelist'] = {
-                ['enabled'] = true,
-                ['on_duty_only'] = true,
-                ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
-                },
-            },
-            ['prop'] = {
-                ['model'] = 'prop_gas_pump_1d',
-                ['coords'] = vector4(442.08, -977.15, 42.69, 269.52),
-            }
-        },
+        -- [1] = {
+        --     ['PolyZone'] = {
+        --         ['coords'] = {
+        --             vector2(473.58, -975.41), --vector2(439.96, -973.0),
+        --             vector2(488.74, -975.12), --vector2(458.09, -973.04),
+        --             vector2(488.84, -990.18), --vector2(458.26, -989.47),
+        --             vector2(472.35, -990.65), --vector2(439.58, -989.94),
+        --         },
+        --         ['minmax'] = {
+        --             ['min'] = 38,--40,
+        --             ['max'] = 50.0
+        --         },
+        --     },
+        --     ['draw_text'] = "[G] Refuel Helicopter",
+        --     ['type'] = 'air',
+        --     ['whitelist'] = {
+        --         ['enabled'] = true,
+        --         ['on_duty_only'] = true,
+        --         ['whitelisted_jobs'] = {
+        --             'police', 'ambulance'
+        --         },
+        --     },
+        --     ['prop'] = {
+        --         ['model'] = 'prop_gas_pump_1d',
+        --         ['coords'] = vector4(472.91, -984.19, 40.01, 275.44), --vector4(442.08, -977.15, 42.69, 269.52),
+        --     }
+        -- },
         -- Pillbox Hospital
-        [2] = {
-            ['PolyZone'] = {
-                ['coords'] = {
-                    vector2(340.46, -580.02),
-                    vector2(351.11, -575.06),
-                    vector2(360.2, -578.35),
-                    vector2(364.99, -588.36),
-                    vector2(361.57, -597.44),
-                    vector2(351.71, -601.99),
-                    vector2(342.19, -598.38), 
-                    vector2(337.23, -587.49),
-                },
-                ['minmax'] = {
-                    ['min'] = 72.50,
-                    ['max'] = 78.50
-                },
-            },
-            ['draw_text'] = "[G] Refuel Helicopter",
-            ['type'] = 'air',
-            ['whitelist'] = {
-                ['enabled'] = true,
-                ['on_duty_only'] = true,
-                ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
-                },
-            },
-            ['prop'] = {
-                ['model'] = 'prop_gas_pump_1d',
-                ['coords'] = vector4(362.65, -592.64, 73.16, 71.26),
-            }
-        },
+        -- [2] = {
+        --     ['PolyZone'] = {
+        --         ['coords'] = {
+        --             vector2(340.46, -580.02),
+        --             vector2(351.11, -575.06),
+        --             vector2(360.2, -578.35),
+        --             vector2(364.99, -588.36),
+        --             vector2(361.57, -597.44),
+        --             vector2(351.71, -601.99),
+        --             vector2(342.19, -598.38), 
+        --             vector2(337.23, -587.49),
+        --         },
+        --         ['minmax'] = {
+        --             ['min'] = 72.50,
+        --             ['max'] = 78.50
+        --         },
+        --     },
+        --     ['draw_text'] = "[G] Refuel Helicopter",
+        --     ['type'] = 'air',
+        --     ['whitelist'] = {
+        --         ['enabled'] = true,
+        --         ['on_duty_only'] = true,
+        --         ['whitelisted_jobs'] = {
+        --             'police', 'ambulance'
+        --         },
+        --     },
+        --     ['prop'] = {
+        --         ['model'] = 'prop_gas_pump_1d',
+        --         ['coords'] = vector4(362.65, -592.64, 73.16, 71.26),
+        --     }
+        -- },
         -- Cental Los Santos Medical Center
-        [3] = {
-            ['PolyZone'] = {
-                ['coords'] = {
-                    vector2(287.81, -1454.52),
-                    vector2(298.6, -1441.48),
-                    vector2(325.74, -1464.21),
-                    vector2(314.95, -1477.29),
-                },
-                ['minmax'] = {
-                    ['min'] = 43.00,
-                    ['max'] = 50.50
-                },
-            },
-            ['draw_text'] = "[G] Refuel Helicopter",
-            ['type'] = 'air',
-            ['whitelist'] = {
-                ['enabled'] = true,
-                ['on_duty_only'] = true,
-                ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
-                },
-            },
-            ['prop'] = {
-                ['model'] = 'prop_gas_pump_1d',
-                ['coords'] = vector4(301.12, -1465.61, 45.51, 321.3),
-            }
-        },
+        -- [3] = {
+        --     ['PolyZone'] = {
+        --         ['coords'] = {
+        --             vector2(287.81, -1454.52),
+        --             vector2(298.6, -1441.48),
+        --             vector2(325.74, -1464.21),
+        --             vector2(314.95, -1477.29),
+        --         },
+        --         ['minmax'] = {
+        --             ['min'] = 43.00,
+        --             ['max'] = 50.50
+        --         },
+        --     },
+        --     ['draw_text'] = "[G] Refuel Helicopter",
+        --     ['type'] = 'air',
+        --     ['whitelist'] = {
+        --         ['enabled'] = true,
+        --         ['on_duty_only'] = true,
+        --         ['whitelisted_jobs'] = {
+        --             'police', 'ambulance'
+        --         },
+        --     },
+        --     ['prop'] = {
+        --         ['model'] = 'prop_gas_pump_1d',
+        --         ['coords'] = vector4(301.12, -1465.61, 45.51, 321.3),
+        --     }
+        -- },
         -- Devin Weston Terminal
         [4] = {
             ['PolyZone'] = {
@@ -567,37 +571,37 @@ Config.AirAndWaterVehicleFueling = {
             }
         },  
         -- Bob Smith PD
-        [13] = {
-            ['PolyZone'] = {
-                ['coords'] = {
-                    vector2(-1083.85, -837.07),
-                    vector2(-1100.36, -849.84),
-                    vector2(-1108.85, -839.11),
-                    vector2(-1107.04, -837.76),
-                    vector2(-1109.65, -834.04),
-                    vector2(-1104.1, -829.69),
-                    vector2(-1104.29, -829.07),
-                    vector2(-1095.62, -822.42),
-                },
-                ['minmax'] = {
-                    ['min'] = 36.00,
-                    ['max'] = 42.50
-                },
-            },
-            ['draw_text'] = "[G] Refuel Helicopter",
-            ['type'] = 'air',
-            ['whitelist'] = {
-                ['enabled'] = true,
-                ['on_duty_only'] = true,
-                ['whitelisted_jobs'] = {
-                    'police', 'ambulance'
-                },
-            },
-            ['prop'] = {
-                ['model'] = 'prop_gas_pump_1d',
-                ['coords'] = vector4(-1089.72, -830.6, 36.68, 129.00),
-            }
-        },  
+        -- [13] = {
+        --     ['PolyZone'] = {
+        --         ['coords'] = {
+        --             vector2(-1083.85, -837.07),
+        --             vector2(-1100.36, -849.84),
+        --             vector2(-1108.85, -839.11),
+        --             vector2(-1107.04, -837.76),
+        --             vector2(-1109.65, -834.04),
+        --             vector2(-1104.1, -829.69),
+        --             vector2(-1104.29, -829.07),
+        --             vector2(-1095.62, -822.42),
+        --         },
+        --         ['minmax'] = {
+        --             ['min'] = 36.00,
+        --             ['max'] = 42.50
+        --         },
+        --     },
+        --     ['draw_text'] = "[G] Refuel Helicopter",
+        --     ['type'] = 'air',
+        --     ['whitelist'] = {
+        --         ['enabled'] = true,
+        --         ['on_duty_only'] = true,
+        --         ['whitelisted_jobs'] = {
+        --             'police', 'ambulance'
+        --         },
+        --     },
+        --     ['prop'] = {
+        --         ['model'] = 'prop_gas_pump_1d',
+        --         ['coords'] = vector4(-1089.72, -830.6, 36.68, 129.00),
+        --     }
+        -- },  
         -- Merryweather Helipad
         [14] = {
             ['PolyZone'] = {
@@ -743,6 +747,34 @@ Config.AirAndWaterVehicleFueling = {
                 ['coords'] = vector4(1748.31, 3297.08, 40.16, 15.0),
             }
         },
+        -- Ajout Mapping LSMS
+        -- [19] = {
+        --     ['PolyZone'] = {
+        --         ['coords'] = {
+        --             vector2(-650.5, 327.48),
+        --             vector2(-652.75, 308.35),
+        --             vector2(-638.72, 307.08),
+        --             vector2(-636.69, 327.43),
+        --         },
+        --         ['minmax'] = {
+        --             ['min'] = 139.50,
+        --             ['max'] = 145.50
+        --         },
+        --     },
+        --     ['draw_text'] = "[G] Faire le plein",
+        --     ['type'] = 'air',
+        --     ['whitelist'] = {
+        --         ['enabled'] = true,
+        --         ['on_duty_only'] = true,
+        --         ['whitelisted_jobs'] = {
+        --             'police', 'ambulance'
+        --         },
+        --     },
+        --     ['prop'] = {
+        --         ['model'] = 'prop_gas_pump_1d',
+        --         ['coords'] = vector4(-642.59, 324.99, 139.12, 174.84),
+        --     }
+        -- },
         -- La Mesa Landing Pad (Custom)
         -- Does not work in conjunction with Gabz Trooper PD.
         -- [19] = {

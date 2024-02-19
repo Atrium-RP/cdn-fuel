@@ -177,15 +177,15 @@ if Config.ElectricVehicleCharging then
             end
         else
             Electricity = exports['qb-input']:ShowInput({
-                header = "Select the Amount of Fuel<br>Current Price: $" ..
-                FuelPrice .. " / KWh <br> Current Charge: " .. finalfuel .. " KWh <br> Full Charge Cost: $" ..
+                header = "Sélectionnez la quantité d'énergie à ravitailler.<br>Prix actuel: $" ..
+                FuelPrice .. " / KWh <br> Charge actuelle: " .. finalfuel .. " KWh <br> Coût d'une charge complète: $" ..
                 wholetankcostwithtax .. "",
-                submitText = "Insert Charger",
+                submitText = "Insérer la prise",
                 inputs = {{
                     type = 'number',
                     isRequired = true,
                     name = 'amount',
-                    text = 'The Battery Can Hold ' .. maxfuel .. ' More KWh.'
+                    text = 'La batterie peut supporter ' .. maxfuel .. ' KWh de plus.'
                 }}
             })
             if Electricity then
