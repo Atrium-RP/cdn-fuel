@@ -78,16 +78,16 @@ Config.VehicleShutoffOnLowFuel = { -- If enabled, vehicles will turn off when th
 Config.RenewedPhonePayment = false -- Enables use of Renewed-Phone Payment System and Notifications
 
 -- Syphoning --
-Config.UseSyphoning = false -- Follow the Syphoning Install Guide to enable this option!
+Config.UseSyphoning = true -- Follow the Syphoning Install Guide to enable this option!
 Config.SyphonDebug = false -- Used for Debugging the syphon portion!
 Config.SyphonKitCap = 50 -- Maximum amount (in L) the syphon kit can fit!
 Config.SyphonPoliceCallChance = 25 -- Math.Random(1, 100) Default: 25%
 Config.SyphonDispatchSystem = "ps-dispatch" -- Options: "ps-dispatch", "qb-dispatch", "qb-default" (just blips) or "custom" (Custom: you must configure yourself!)
 
 --- Jerry Can -----
-Config.UseJerryCan = false -- Enable the Jerry Can functionality. Will only work if properly installed.
+Config.UseJerryCan = true -- Enable the Jerry Can functionality. Will only work if properly installed.
 Config.JerryCanCap = 50 -- Maximum amount (in L) the jerrycan can fit! (Default: 50L)
-Config.JerryCanPrice = 200 -- The price of a jerry can, not including tax.
+Config.JerryCanPrice = 100 -- The price of a jerry can, not including tax.
 Config.JerryCanGas = 25 -- The amount of Gas that the Jerry Can you purchase comes with. This should not be bigger that your Config.JerryCanCap!
 
 -- Animations --

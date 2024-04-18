@@ -2747,18 +2747,18 @@ CreateThread(function()
 						end
 					end,
 				},
-				-- {
-				-- 	num = 2,
-				-- 	type = "client",
-				-- 	event = "cdn-fuel:client:purchasejerrycan",
-				-- 	icon = "fas fa-fire-flame-simple",
-				-- 	label = Lang:t("buy_jerrycan"),
-				-- 	canInteract = function()
-				-- 		if not IsPedInAnyVehicle(PlayerPedId()) and not holdingnozzle and not HoldingSpecialNozzle and inGasStation == true then
-				-- 			return true
-				-- 		end
-				-- 	end,
-				-- },
+				{
+					num = 2,
+					type = "client",
+					event = "cdn-fuel:client:purchasejerrycan",
+					icon = "fas fa-fire-flame-simple",
+					label = Lang:t("buy_jerrycan"),
+					canInteract = function()
+						if not IsPedInAnyVehicle(PlayerPedId()) and not holdingnozzle and not HoldingSpecialNozzle and inGasStation == true then
+							return true
+						end
+					end,
+				},
 				{
 					num = 3,
 					type = "client",
