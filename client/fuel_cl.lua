@@ -2008,6 +2008,7 @@ RegisterNetEvent('cdn-syphoning:syphon', function(data)
 									StopAnimTask(ped, Config.StealAnimDict, Config.StealAnim, 1.0)
 								else
 									QBCore.Functions.Notify(Lang:t("menu_syphon_vehicle_empty"), 'error')
+									StopAnimTask(ped, Config.StealAnimDict, Config.StealAnim, 1.0)
 								end
 							end, function() -- Play When Cancel
 								PoliceAlert(GetEntityCoords(ped))
