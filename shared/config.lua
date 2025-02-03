@@ -1462,28 +1462,28 @@ Config.GasStations = { -- Configuration options for various gas station related 
         electricchargercoords = vector4(-66.51, -2532.18, 5.14, 329.52),
         label = "Post Op Ron Station",
     },
-    [29] = {
-        zones = {
-            vector2(225.49899291992, -924.0015258789),
-            vector2(169.89608764648, -902.14361572266),
-            vector2(188.7702178955, -854.18872070312),
-            vector2(243.26141357422, -874.19250488282)
-        },
-        minz = 28.0,
-        maxz = 30.9,
-        pedmodel = "a_m_m_indian_01",
-        cost = 100000,
-        shutoff = false,
-        pedcoords = { --vector4(200.31, -880.76, 29.66, 338.25)
-            x = 200.31,
-            y = -880.76,
-            z = 28.66,
-            h = 338.25,
-        },
-        electriccharger = nil,
-        electricchargercoords = vector4(223.56, -866.0, 28.67, 160.55),
-        label = "Strawberry Gardens Ron Station",
-    },
+    -- [29] = {
+    --     zones = {
+    --         vector2(225.49899291992, -924.0015258789),
+    --         vector2(169.89608764648, -902.14361572266),
+    --         vector2(188.7702178955, -854.18872070312),
+    --         vector2(243.26141357422, -874.19250488282)
+    --     },
+    --     minz = 28.0,
+    --     maxz = 30.9,
+    --     pedmodel = "a_m_m_indian_01",
+    --     cost = 100000,
+    --     shutoff = false,
+    --     pedcoords = { --vector4(200.31, -880.76, 29.66, 338.25)
+    --         x = 200.31,
+    --         y = -880.76,
+    --         z = 28.66,
+    --         h = 338.25,
+    --     },
+    --     electriccharger = nil,
+    --     electricchargercoords = vector4(223.56, -866.0, 28.67, 160.55),
+    --     label = "Strawberry Gardens Ron Station",
+    -- },
     --[[
     [28] = { -- Gabz Ottos Autos Location, Line In If Needed.
         zones = {
